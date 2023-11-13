@@ -12,6 +12,7 @@ public partial class ProductoPage : ContentPage
 	public ProductoPage()
 	{
 		InitializeComponent();
+        listaProductos.ItemsSource = Utils.Utils.ListaProductos;
     }
 
     private async void OnClickNuevoProducto(object sender, EventArgs e)
