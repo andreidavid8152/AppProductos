@@ -10,9 +10,9 @@ namespace MauiApp1;
 
 public partial class ProductoPage : ContentPage
 {
-	public ProductoPage()
-	{
-		InitializeComponent();
+    public ProductoPage()
+    {
+        InitializeComponent();
         listaProductos.ItemsSource = Utils.Utils.ListaProductos;
     }
 
@@ -28,4 +28,11 @@ public partial class ProductoPage : ContentPage
         await Navigation.PushAsync(new NuevoProducto());
     }
 
+    private async void onClickShowDetails(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (e.SelectedItem is Producto producto)
+        {
+            await Navigation.PushAsync(new DetailsProducto(producto));
+        }
+    }
 }

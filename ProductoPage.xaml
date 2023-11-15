@@ -25,7 +25,8 @@
 
         <ListView x:Name="listaProductos"
                   RowHeight="80"
-                  Margin="0,20,0,0">
+                  Margin="0,20,0,0"
+                  ItemSelected="onClickShowDetails">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
