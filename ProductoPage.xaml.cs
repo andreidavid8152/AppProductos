@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-
+using System.Collections.ObjectModel;
+using MauiApp1.Models;
 
 namespace MauiApp1;
 
@@ -15,10 +16,16 @@ public partial class ProductoPage : ContentPage
         listaProductos.ItemsSource = Utils.Utils.ListaProductos;
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        var productos = new ObservableCollection<Producto>(Utils.Utils.ListaProductos);
+        listaProductos.ItemsSource = productos;
+    }
+
     private async void OnClickNuevoProducto(object sender, EventArgs e)
     {
-        var toast = Toast.Make("Click en nuevo producto", ToastDuration.Short, 14);
-
-        await toast.Show();
+        await Navigation.PushAsync(new NuevoProducto());
     }
+
 }
