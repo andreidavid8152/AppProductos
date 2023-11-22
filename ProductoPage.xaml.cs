@@ -13,7 +13,6 @@ public partial class ProductoPage : ContentPage
     public ProductoPage()
     {
         InitializeComponent();
-        listaProductos.ItemsSource = Utils.Utils.ListaProductos;
     }
 
     protected override void OnAppearing()
@@ -30,9 +29,11 @@ public partial class ProductoPage : ContentPage
 
     private async void onClickShowDetails(object sender, SelectedItemChangedEventArgs e)
     {
-        if (e.SelectedItem is Producto producto)
+        Producto producto = e.SelectedItem as Producto;
+        await Navigation.PushAsync(new DetailsProducto()
         {
-            await Navigation.PushAsync(new DetailsProducto(producto));
-        }
+            BindingContext = producto,
+        });
+
     }
 }
