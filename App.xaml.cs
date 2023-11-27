@@ -1,12 +1,14 @@
-﻿namespace MauiApp1
+﻿using MauiApp1.Service;
+
+namespace MauiApp1
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new ProductoPage());
+            APIService _APIService = new APIService();
+            MainPage = new NavigationPage(new ProductoPage(_APIService));
         }
     }
 }

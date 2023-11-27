@@ -1,4 +1,5 @@
 ﻿using MauiApp1.Models;
+using MauiApp1.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace MauiApp1.Utils
 {
     internal class Utils
     {
+
+        static public APIService apiservice = new APIService();
+
         static public List<Producto> ListaProductos = new List<Producto>()
         {
             new Producto
